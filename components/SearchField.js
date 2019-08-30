@@ -4,7 +4,7 @@ import Input from './Input'
 import { Box } from '@rebass/grid'
 import { Search } from 'react-feather'
 
-const SearchField = ({ onSearch }) => {
+const SearchField = ({ onSearch, placeholder }) => {
   const [value, setValue] = useState('')
   return (
     <Box
@@ -14,11 +14,10 @@ const SearchField = ({ onSearch }) => {
       width='100%'
     >
       <Box
-        mt='15px'
-        ml='17px'
         css={{
           position: 'absolute',
-          top: '50%',
+          top: '15px',
+          left: '17px',
           zIndex: 1
         }}
       >
@@ -26,14 +25,19 @@ const SearchField = ({ onSearch }) => {
       </Box>
       <Input
         onChange={e => setValue(e.target.value)}
-        placeholder='Search GIFS..'
+        placeholder={placeholder}
       />
     </Box>
   )
 }
 
 SearchField.propTypes = {
-  onSearch: PropTypes.func.isRequired
+  onSearch: PropTypes.func.isRequired,
+  placeholder: PropTypes.string
+}
+
+SearchField.defaultProps = {
+  placeholder: 'Search...'
 }
 
 export default SearchField
