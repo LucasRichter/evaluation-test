@@ -9,7 +9,10 @@ const SearchField = ({ onSearch, placeholder }) => {
   return (
     <Box
       as='form'
-      onSubmit={() => onSearch(value)}
+      onSubmit={e => {
+        e.preventDefault()
+        onSearch(value)
+      }}
       css={{ position: 'relative' }}
       width='100%'
     >
