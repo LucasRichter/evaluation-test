@@ -1,71 +1,45 @@
 import styled, { keyframes } from 'styled-components'
 import React from 'react'
 
-const loaderInner = keyframes`
-  0% {
-    height: 0%;
+const bounce = keyframes`
+  0%, 75%, 100%{
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
   }
 
-  25% {
-    height: 0%;
-  }
-
-  50% {
-    height: 100%;
-  }
-
-  75% {
-    height: 100%;
-  }
-
-  100% {
-    height: 0%;
+  25%{
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px);
   }
 `
 
-const loader = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(180deg);
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  75% {
-    transform: rotate(360deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-`
-
-const Square = styled.div`
-  display: inline-block;
-  width: 30px;
-  height: 30px;
+const Container = styled.div`
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
   position: relative;
-  border: 4px solid black;
-  top: 50%;
-  animation: ${loader} 2s infinite ease;
+  margin: 0 auto;
 `
 
-const SquareInner = styled.div`
-  vertical-align: top;
+const Circle = styled.div`
   display: inline-block;
-  width: 100%;
-  background-color: black;
-  animation: ${loaderInner} 2s infinite ease-in;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #3498db;
+  margin: 35px 5px;
+  animation: ${bounce} 1s ease-in-out infinite ${p => p.delay};
 `
 
 const Loader = () =>
-  <Square>
-    <SquareInner />
-  </Square>
+  <Container>
+    <Circle />
+    <Circle delay='0.33s' />
+    <Circle delay='0.66s' />
+  </Container>
 
 export default Loader

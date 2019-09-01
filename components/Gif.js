@@ -4,7 +4,7 @@ import { Box } from '@rebass/grid'
 import generateRandomColor from '../utils/generateRandomColor'
 import TrackVisibility from 'react-on-screen'
 
-const Gif = ({ sizes, title, originalSize }) => {
+const Gif = ({ sizes, title, onClick, originalSize }) => {
   return (
     <TrackVisibility
       style={{
@@ -18,6 +18,7 @@ const Gif = ({ sizes, title, originalSize }) => {
     >
       {({ isVisible }) => isVisible &&
         <Box
+          onClick={onClick}
           src={sizes[originalSize].url}
           alt={title}
           as='img'
@@ -28,12 +29,13 @@ const Gif = ({ sizes, title, originalSize }) => {
 
 Gif.propTypes = {
   sizes: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   originalSize: PropTypes.string
 }
 
 Gif.defaultProps = {
-  originalSize: 'mobile'
+  originalSize: 'preview'
 }
 
 export default Gif
