@@ -7,10 +7,8 @@ import Router from 'next/router'
 
 const index = () => {
   const onSearch = value => {
-    Router.push({
-      pathname: '/search',
-      query: { search: value }
-    })
+    if (!value) return
+    Router.push(`/search?search=${value}`)
   }
 
   return (

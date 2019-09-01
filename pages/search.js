@@ -27,10 +27,7 @@ const search = ({ setType, setSearch, search, total }) => {
       <Box my='30px'>
         <SearchField onSearch={value => {
           if (!value) return
-          Router.push({
-            pathname: '/search',
-            query: { search: value }
-          })
+          Router.push(`/search?search=${value}`)
         }}
         />
       </Box>
