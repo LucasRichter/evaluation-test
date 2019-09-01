@@ -37,6 +37,11 @@ const GifsList = ({ images, loading, total, offset, loadGifs }) => {
     ...images[index].sizes.original
   })
 
+  const onClose = () => {
+    setOpen(false)
+    setImage({})
+  }
+
   const onPrev = () => setCurrentIndex(value => value > 0 ? value - 1 : value)
   const onNext = () => setCurrentIndex(value => value + 1)
 
@@ -67,7 +72,7 @@ const GifsList = ({ images, loading, total, offset, loadGifs }) => {
         disablePrev={currentIndex === 0}
         onPrev={onPrev}
         onNext={onNext}
-        onClose={() => setOpen(false)}
+        onClose={onClose}
         image={loading ? {} : image}
       />
     </Fragment>

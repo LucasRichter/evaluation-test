@@ -8,6 +8,7 @@ import Arrow from './Arrow'
 import Image from './Image'
 import Loader from '../Loader'
 import useKeyPress from '../../hooks/useKeyPress'
+import Text from '../Text'
 
 const Lightbox = ({ disablePrev, open, image, onNext, onPrev, onClose }) => {
   const [loading, setLoading] = useState(undefined)
@@ -93,6 +94,26 @@ const Lightbox = ({ disablePrev, open, image, onNext, onPrev, onClose }) => {
           onLoad={() => setLoading(false)}
           src={image.url}
         />
+        <Box
+          width='100%'
+          p='40px'
+          bg='rgba(0,0,0,0.8)'
+          css={{
+            transition: 'transform .325s ease-in-out',
+            position: 'absolute',
+            bottom: 0,
+            textAlign: 'center',
+            transform: `translateY(${loading ? 100 : 0}%)`
+          }}
+        >
+          <Text
+            color='white'
+            fontSize='50px'
+          >
+            {image.title}
+          </Text>
+
+        </Box>
       </Content>
     </Background>
   )

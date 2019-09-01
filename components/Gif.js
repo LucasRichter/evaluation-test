@@ -3,17 +3,27 @@ import PropTypes from 'prop-types'
 import { Box } from '@rebass/grid'
 import generateRandomColor from '../utils/generateRandomColor'
 import TrackVisibility from 'react-on-screen'
+import styled from 'styled-components'
+
+const Container = styled(TrackVisibility)`
+  height: ${p => p.height}px;
+  width: ${p => p.width}px;
+  background: ${p => p.bg};
+  cursor: pointer;
+  position: relative;
+  transition: opacity .125s ease-in-out;
+
+  &:hover {
+    opacity: 0.6;
+  }
+`
 
 const Gif = ({ sizes, title, onClick, originalSize }) => {
   return (
-    <TrackVisibility
-      style={{
-        height: `${sizes[originalSize].height}px`,
-        width: `${sizes[originalSize].width}px`,
-        background: generateRandomColor(),
-        cursor: 'pointer',
-        position: 'relative'
-      }}
+    <Container
+      bg={generateRandomColor()}
+      height={sizes[originalSize].height}
+      width={sizes[originalSize].width}
       partialVisibility
     >
       {({ isVisible }) => isVisible &&
@@ -23,7 +33,7 @@ const Gif = ({ sizes, title, onClick, originalSize }) => {
           alt={title}
           as='img'
         />}
-    </TrackVisibility>
+    </Container>
   )
 }
 
