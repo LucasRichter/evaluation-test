@@ -41,7 +41,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <GlobalStyle />
-        <Box mx='90px'>
+        <Box mx={['20px', '90px']}>
           <Component {...pageProps} />
         </Box>
       </Provider>

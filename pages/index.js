@@ -25,7 +25,7 @@ const index = () => {
         }}
       >
         <Title>Search best Gifs in the Web</Title>
-        <Box width='450px' my='40px'>
+        <Box width={['100%', '450px']} my={['20px', '40px']}>
           <SearchField onSearch={onSearch} />
         </Box>
       </Flex>

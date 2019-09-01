@@ -12,10 +12,10 @@ import Text from '../Text'
 
 const Lightbox = ({ disablePrev, open, image, onNext, onPrev, onClose }) => {
   const [loading, setLoading] = useState(undefined)
-  const onClick = func => e => {
+  const onClick = e => {
     if (!open) return
     e && e.stopPropagation()
-    func()
+    return false
   }
 
   const nextFunc = e => {
