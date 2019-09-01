@@ -1,4 +1,5 @@
 # Evaluation Test
+This project was builded in react/redux.
 
 ## Quick Overview
 
@@ -16,10 +17,12 @@ yarn export
 
 All build files are avaliable in `/dist` folder
 
+## Server side rendering
+If you want run a server build, use `yarn start` after `yarn build`
 
 ## Lightbox
 
-To navigate acroos the slids use the keyboard arrows. `Escape` to close.
+To navigate across the ligthbox use the keyboard arrows. Use `Escape` key to close.
 
 ## Tech Stack
 | Module            | Responsability        |
@@ -33,7 +36,3 @@ To navigate acroos the slids use the keyboard arrows. `Escape` to close.
 | babel             | Transpiler            |
 | eslint            | Linter                |
 | standard js       | Code Style            |
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
