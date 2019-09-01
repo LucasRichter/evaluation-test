@@ -41,9 +41,8 @@ export default (state = initialState, { type, payload }) => {
             id: gif.id,
             title: gif.title,
             sizes: {
-              mobile: gif.images.fixed_width,
-              preview: gif.images.preview_gif,
-              desktop: gif.images.original
+              preview: gif.images.fixed_width,
+              original: gif.images.original
             }
           }))
         ]
